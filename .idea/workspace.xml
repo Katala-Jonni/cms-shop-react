@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="35897b02-db74-4d63-aeba-07e6d4bd4a57" name="Default" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBowerSettings">
+    <node-interpreter value="project" />
+    <bower-package value="" />
+    <bower.json value="" />
+  </component>
+  <component name="JsFlowSettings">
+    <service-enabled>true</service-enabled>
+    <exe-path />
+    <other-services-enabled>true</other-services-enabled>
+    <auto-save>true</auto-save>
+  </component>
+  <component name="ProjectId" id="1kyN9lB22VVN3qhnrgNoemyf3No" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="javascript.nodejs.core.library.configured.version" value="13.6.0" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/assets/jss/material-dashboard-react/components" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.jscs" value="true" />
+    <property name="node.js.detected.package.standard" value="true" />
+    <property name="node.js.detected.package.stylelint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.jscs" value="project" />
+    <property name="node.js.path.for.package.standard" value="project" />
+    <property name="node.js.path.for.package.stylelint" value="project" />
+    <property name="node.js.selected.package.eslint" value="$PROJECT_DIR$/node_modules/eslint" />
+    <property name="node.js.selected.package.jscs" value="" />
+    <property name="node.js.selected.package.standard" value="$PROJECT_DIR$/node_modules/eslint" />
+    <property name="node.js.selected.package.stylelint" value="$PROJECT_DIR$/../../../Node 1/node_modules/eslint" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="prettierjs.PrettierConfiguration.NodeInterpreter" value="project" />
+    <property name="prettierjs.PrettierConfiguration.Package" value="$PROJECT_DIR$/../../../Node 1/node_modules/prettier" />
+    <property name="settings.editor.selected.configurable" value="settings.javascript.linters.eslint" />
+    <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/assets/jss/material-dashboard-react/components" />
+      <recent name="$PROJECT_DIR$/src/components/CustomButtons" />
+      <recent name="$PROJECT_DIR$/src/components" />
+      <recent name="$PROJECT_DIR$/src/views/Product" />
+      <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/assets/img" />
+      <recent name="$PROJECT_DIR$/public" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="start" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.start" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="35897b02-db74-4d63-aeba-07e6d4bd4a57" name="Default" comment="" />
+      <created>1552155221069</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1552155221069</updated>
+      <workItem from="1552155223723" duration="539000" />
+      <workItem from="1552155799118" duration="4360000" />
+      <workItem from="1552160616441" duration="7285000" />
+      <workItem from="1589911026084" duration="789000" />
+      <workItem from="1606668725107" duration="14000" />
+      <workItem from="1606668974516" duration="5957000" />
+      <workItem from="1607555346446" duration="5018000" />
+      <workItem from="1607560476217" duration="5000" />
+      <workItem from="1607560493378" duration="483000" />
+      <workItem from="1607561025694" duration="53000" />
+      <workItem from="1607561082422" duration="4000" />
+      <workItem from="1607561114321" duration="641000" />
+      <workItem from="1607561938270" duration="8000" />
+      <workItem from="1607562016857" duration="12375000" />
+      <workItem from="1607724360236" duration="4765000" />
+      <workItem from="1607729685358" duration="39385000" />
+      <workItem from="1607873807293" duration="26067000" />
+      <workItem from="1608191419178" duration="145000" />
+      <workItem from="1608218535008" duration="44458000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="254" y="337" key="#ESLint" timestamp="1607559325972">
+      <screen x="0" y="23" width="2560" height="1297" />
+    </state>
+    <state x="254" y="337" key="#ESLint/0.23.2560.1297@0.23.2560.1297" timestamp="1607559325972" />
+    <state x="166" y="333" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1607561075624">
+      <screen x="0" y="23" width="2560" height="1297" />
+    </state>
+    <state x="166" y="333" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.2560.1297@0.23.2560.1297" timestamp="1607561075624" />
+    <state x="1632" y="471" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1607875344202">
+      <screen x="0" y="23" width="2560" height="1297" />
+    </state>
+    <state x="1632" y="471" key="#com.intellij.fileTypes.FileTypeChooser/0.23.2560.1297@0.23.2560.1297" timestamp="1607875344202" />
+    <state x="392" y="425" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1608432078894">
+      <screen x="0" y="25" width="2560" height="1290" />
+    </state>
+    <state x="392" y="425" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.2560.1297@0.23.2560.1297" timestamp="1607737786093" />
+    <state x="392" y="425" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.25.2560.1290@0.25.2560.1290" timestamp="1608432078894" />
+    <state width="1287" height="350" key="GridCell.Tab.0.bottom" timestamp="1607560978542">
+      <screen x="0" y="23" width="2560" height="1297" />
+    </state>
+    <state width="1287" height="350" key="GridCell.Tab.0.bottom/0.23.2560.1297@0.23.2560.1297" timestamp="1607560978542" />
+    <state width="1287" height="350" key="GridCell.Tab.0.center" timestamp="1607560978541">
+      <screen x="0" y="23" width="2560" height="1297" />
+    </state>
+    <state width="1287" height="350" key="GridCell.Tab.0.center/0.23.2560.1297@0.23.2560.1297" timestamp="1607560978541" />
+    <state width="1287" height="350" key="GridCell.Tab.0.left" timestamp="1607560978540">
+      <screen x="0" y="23" width="2560" height="1297" />
+    </state>
+    <state width="1287" height="350" key="GridCell.Tab.0.left/0.23.2560.1297@0.23.2560.1297" timestamp="1607560978540" />
+    <state width="1287" height="350" key="GridCell.Tab.0.right" timestamp="1607560978541">
+      <screen x="0" y="23" width="2560" height="1297" />
+    </state>
+    <state width="1287" height="350" key="GridCell.Tab.0.right/0.23.2560.1297@0.23.2560.1297" timestamp="1607560978541" />
+    <state x="155" y="310" key="SettingsEditor" timestamp="1607555956928">
+      <screen x="0" y="23" width="2560" height="1297" />
+    </state>
+    <state x="155" y="310" key="SettingsEditor/0.23.2560.1297@0.23.2560.1297" timestamp="1607555956928" />
+    <state x="850" y="118" width="978" height="1097" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1607729783744">
+      <screen x="0" y="23" width="2560" height="1297" />
+    </state>
+    <state x="850" y="118" width="978" height="1097" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.23.2560.1297@0.23.2560.1297" timestamp="1607729783744" />
+    <state x="761" y="103" width="978" height="1097" key="com.intellij.history.integration.ui.views.SelectionHistoryDialog" timestamp="1607729783745">
+      <screen x="0" y="23" width="2560" height="1297" />
+    </state>
+    <state x="761" y="103" width="978" height="1097" key="com.intellij.history.integration.ui.views.SelectionHistoryDialog/0.23.2560.1297@0.23.2560.1297" timestamp="1607729783745" />
+    <state x="309" y="316" width="670" height="675" key="run.anything.popup" timestamp="1607896498696">
+      <screen x="0" y="23" width="2560" height="1297" />
+    </state>
+    <state x="309" y="316" width="670" height="675" key="run.anything.popup/0.23.2560.1297@0.23.2560.1297" timestamp="1607896498696" />
+    <state x="292" y="318" width="670" height="673" key="search.everywhere.popup" timestamp="1608431595682">
+      <screen x="0" y="25" width="2560" height="1290" />
+    </state>
+    <state x="292" y="318" width="670" height="676" key="search.everywhere.popup/0.23.2560.1297@0.23.2560.1297" timestamp="1607780654188" />
+    <state x="292" y="318" width="670" height="673" key="search.everywhere.popup/0.25.2560.1290@0.25.2560.1290" timestamp="1608431595682" />
+  </component>
+</project>
