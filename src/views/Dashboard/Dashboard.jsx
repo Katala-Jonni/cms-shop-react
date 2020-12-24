@@ -23,34 +23,41 @@ import CardHeader from "components/Card/CardHeader.jsx";
 import CardIcon from "components/Card/CardIcon.jsx";
 import CardBody from "components/Card/CardBody.jsx";
 import CardFooter from "components/Card/CardFooter.jsx";
-
+import Button from "../../components/CustomButtons/Button";
+import Loader from "../../components/Loader/Loader";
+import CheckboxListSecondary from "../../components/CheckboxListSecondary/CheckboxListSecondary";
+// chart data mock
 import {
   dailySalesChart,
   emailsSubscriptionChart,
   completedTasksChart
 } from "variables/charts.jsx";
-
+// assets
 import dashboardStyle from "assets/jss/material-dashboard-react/views/dashboardStyle.jsx";
-import Button from "../../components/CustomButtons/Button";
-import CheckboxListSecondary from "../../components/CheckboxListSecondary/CheckboxListSecondary";
 
 class Dashboard extends React.Component {
   state = {
     value: 0
   };
+
+  componentDidMount(): void {
+    this.props.startDashboard();
+  }
+
   handleChange = (event, value) => {
     this.setState({ value });
   };
 
-  handleChangeIndex = index => {
-    this.setState({ value: index });
-  };
-
   render() {
-    const { classes } = this.props;
-
+    const { classes, isLoadDashboard } = this.props;
+    console.log(isLoadDashboard);
+    if (!isLoadDashboard) {
+      return (
+        <Loader/>
+      );
+    }
     return (
-      <div>
+      <>
         <GridContainer>
           <GridItem xs={12} sm={6} xl={3} md={6}>
             <NavLink to="/revenue">
@@ -65,11 +72,8 @@ class Dashboard extends React.Component {
                   </h3>
                 </CardHeader>
                 <CardFooter stats>
-                  {/*<div className={classes.stats}>*/}
-                  {/*  <Danger>*/}
-                  {/*    <Warning/>*/}
-                  {/*  </Danger>*/}
-                  {/*</div>*/}
+                  <div className={classes.stats}>
+                  </div>
                 </CardFooter>
               </Card>
             </NavLink>
@@ -102,10 +106,8 @@ class Dashboard extends React.Component {
                   <h3 className={classes.cardTitle}>+85</h3>
                 </CardHeader>
                 <CardFooter stats>
-                  {/*<div className={classes.stats}>*/}
-                  {/*  <LocalOffer/>*/}
-                  {/*  Отзывы*/}
-                  {/*</div>*/}
+                  <div className={classes.stats}>
+                  </div>
                 </CardFooter>
               </Card>
             </NavLink>
@@ -121,10 +123,8 @@ class Dashboard extends React.Component {
                   <h3 className={classes.cardTitle}>+58</h3>
                 </CardHeader>
                 <CardFooter stats>
-                  {/*<div className={classes.stats}>*/}
-                  {/*  <Update/>*/}
-                  {/*  Just Updated*/}
-                  {/*</div>*/}
+                  <div className={classes.stats}>
+                  </div>
                 </CardFooter>
               </Card>
             </NavLink>
@@ -143,10 +143,8 @@ class Dashboard extends React.Component {
                   <h3 className={classes.cardTitle}>+49/-10</h3>
                 </CardHeader>
                 <CardFooter stats>
-                  {/*<div className={classes.stats}>*/}
-                  {/*  <Update/>*/}
-                  {/*  Just Updated*/}
-                  {/*</div>*/}
+                  <div className={classes.stats}>
+                  </div>
                 </CardFooter>
               </Card>
             </NavLink>
@@ -192,11 +190,6 @@ class Dashboard extends React.Component {
                   increase in today sales.
                 </p>
               </CardBody>
-              <CardFooter chart>
-                {/*<div className={classes.stats}>*/}
-                {/*  <AccessTime/> updated 4 minutes ago*/}
-                {/*</div>*/}
-              </CardFooter>
             </Card>
           </GridItem>
           <GridItem xs={12} sm={12} md={6}>
@@ -275,13 +268,15 @@ class Dashboard extends React.Component {
             </Card>
           </GridItem>
         </GridContainer>
-      </div>
+      </>
     );
   }
 }
 
 Dashboard.propTypes = {
-  classes: PropTypes.object.isRequired
+  classes: PropTypes.object.isRequired,
+  startDashboard: PropTypes.func.isRequired,
+  isLoadDashboard: PropTypes.bool
 };
 
 export default withStyles(dashboardStyle)(Dashboard);

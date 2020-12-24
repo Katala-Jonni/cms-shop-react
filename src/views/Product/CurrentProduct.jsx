@@ -1,5 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
+import MarkdownIt from "markdown-it";
+import MdEditor from "react-markdown-editor-lite";
+import { NavLink } from "react-router-dom";
+import { PageHeader } from "antd";
+// import style manually
+import "react-markdown-editor-lite/lib/index.css";
 // @material-ui/core
 import withStyles from "@material-ui/core/styles/withStyles";
 import { Grid } from "@material-ui/core";
@@ -12,24 +18,14 @@ import RateReviewIcon from "@material-ui/icons/RateReview";
 import GridItem from "components/Grid/GridItem.jsx";
 import CustomTabs from "components/CustomTabs/CustomTabs.jsx";
 import DetailProduct from "./DetailProduct";
-// import RichTextInput from "ra-input-rich-text";
-
-import { server } from "variables/general.jsx";
-
-import dashboardStyle from "assets/jss/material-dashboard-react/views/dashboardStyle.jsx";
-
-import MarkdownIt from "markdown-it";
-import MdEditor from "react-markdown-editor-lite";
-// import style manually
-import "react-markdown-editor-lite/lib/index.css";
 import ImageProduct from "./ImageProduct";
-import { NavLink } from "react-router-dom";
-import { PageHeader } from "antd";
+// assets
+import dashboardStyle from "assets/jss/material-dashboard-react/views/dashboardStyle.jsx";
+// data resource
+import { server } from "variables/general.jsx";
 
 const mdParser = new MarkdownIt({
   html: true
-  // linkify: true,
-  // typographer: true
 });
 
 const plugins = [
@@ -46,14 +42,12 @@ const plugins = [
   "table",
   "image",
   "link",
-  // 'clear',
+  "clear",
   "logger"
-  // 'mode-toggle',
 ];
 
-const path = "/product";
+const path = "/catalog";
 
-// eslint-disable-next-line react/prop-types
 const PostTitle = ({ record }) => {
   return <span>Post {record ? `"${record.title}"` : ""}</span>;
 };
@@ -85,13 +79,6 @@ class Dashboard extends React.Component {
     });
   };
 
-  handleClickGetValue = () => {
-    this.setState({
-      htmlEditor: this.mdEditor.current.getHtmlValue()
-    });
-  };
-
-
   render() {
     return (
       <div>
@@ -105,7 +92,7 @@ class Dashboard extends React.Component {
             <NavLink to={path}>
               <PageHeader
                 onBack={() => null}
-                title="Все товары"
+                title="Каталог"
               />
 
             </NavLink>
@@ -114,6 +101,7 @@ class Dashboard extends React.Component {
             <CustomTabs
               title=""
               headerColor="info"
+              history={this.props.history}
               tabs={[
                 {
                   tabName: "Детали",
@@ -121,7 +109,7 @@ class Dashboard extends React.Component {
                   tabContent: (
                     <DetailProduct>
                       {this.state.htmlEditor
-                        ? <div className={"js-editor"}></div>
+                        ? <div className="js-editor"/>
                         : null
                       }
                       <MdEditor
@@ -173,7 +161,6 @@ class Dashboard extends React.Component {
                   )
                 }
               ]}
-              history={this.props.history}
             />
           </GridItem>
         </Grid>

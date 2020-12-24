@@ -12,11 +12,16 @@ import Card from "components/Card/Card.jsx";
 import CardHeader from "components/Card/CardHeader.jsx";
 import CardBody from "components/Card/CardBody.jsx";
 import CardIcon from "components/Card/CardIcon.jsx";
-//
+// data resource
 import { getOrderColumns, order } from "./utils";
+//
 import OrderTableSort from "./OrderTableSort";
 
 class Order extends React.Component {
+  onChangeSearch = evt => {
+    console.log("CurrentCategory-onChangeSearch", evt.target.value);
+  };
+
   render() {
     const { classes } = this.props;
 
@@ -42,6 +47,8 @@ class Order extends React.Component {
                   getColumns={getOrderColumns}
                   path={"/order"}
                   pagination={order.length > 10}
+                  viewSearch
+                  onChangeSearch={this.onChangeSearch}
                 />
               </CardBody>
             </Card>

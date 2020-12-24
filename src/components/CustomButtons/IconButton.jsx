@@ -17,6 +17,7 @@ function IconCustomButton({ ...props }) {
       [" " + classes[color]]: color,
       [" " + customClass]: customClass
     });
+  console.log(buttonClasses);
   return (
     <IconButton {...rest} className={buttonClasses}>
       {children}

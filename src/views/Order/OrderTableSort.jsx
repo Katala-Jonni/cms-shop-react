@@ -1,11 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 import "antd/dist/antd.css";
-import { Table } from "antd";
-// import { Table, Button, Space } from "antd";
-// import moment from "moment/min/moment-with-locales";
-// import { statusStyle } from "./utils";
-// import Button from "../../components/CustomButtons/Button";
+import { Space, Table } from "antd";
+// core components
+import SearchInput from "../../components/Search/SearchInput";
 
 class OrderTableSort extends React.Component {
   state = {
@@ -43,17 +41,19 @@ class OrderTableSort extends React.Component {
 
   render() {
     let { sortedInfo, filteredInfo } = this.state;
+    const { viewSearch, onChangeSearch } = this.props;
 
     sortedInfo = sortedInfo || {};
     filteredInfo = filteredInfo || {};
     const columns = this.props.getColumns(filteredInfo, sortedInfo);
     return (
       <>
-        {/*<Space style={{ marginBottom: 16 }}>*/}
-        {/*  <Button onClick={this.setAgeSort}>Sort age</Button>*/}
-        {/*  <Button onClick={this.clearFilters}>Clear filters</Button>*/}
-        {/*  <Button onClick={this.clearAll}>Clear filters and sorters</Button>*/}
-        {/*</Space>*/}
+        {viewSearch
+          ? <Space style={{ marginBottom: 16 }}>
+            <SearchInput onChange={onChangeSearch} disabledBtn/>
+          </Space>
+          : null
+        }
         <Table
           columns={columns}
           dataSource={this.props.orders}
@@ -86,6 +86,7 @@ class OrderTableSort extends React.Component {
 }
 
 OrderTableSort.propTypes = {
+  classes: PropTypes.object,
   history: PropTypes.object,
   orders: PropTypes.array,
   getColumns: PropTypes.func,
@@ -94,7 +95,9 @@ OrderTableSort.propTypes = {
   footer: PropTypes.any,
   tableLayout: PropTypes.string,
   scroll: PropTypes.object,
-  pagination: PropTypes.bool
+  pagination: PropTypes.bool,
+  viewSearch: PropTypes.bool,
+  onChangeSearch: PropTypes.func
 };
 
 export default OrderTableSort;

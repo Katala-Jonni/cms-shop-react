@@ -1,11 +1,9 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import { PageHeader } from "antd";
+import { NavLink } from "react-router-dom";
 import moment from "moment/min/moment-with-locales";
 import classname from "classnames";
-import { PageHeader } from "antd";
-
-moment.locale("ru");
-
 // core components
 import GridContainer from "../../components/Grid/GridContainer";
 import GridItem from "../../components/Grid/GridItem";
@@ -16,24 +14,23 @@ import CardBody from "../../components/Card/CardBody";
 import CardFooter from "../../components/Card/CardFooter";
 import Button from "../../components/CustomButtons/Button";
 import Loader from "../../components/Loader/Loader";
-
 // @material-ui/core components
 import { withStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import TextField from "@material-ui/core/TextField";
 import MenuItem from "@material-ui/core/MenuItem";
 import { Grid } from "@material-ui/core";
-
 // @material-ui/icons
 import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
 import CloseIcon from "@material-ui/icons/Close";
 import SaveIcon from "@material-ui/icons/Save";
-
-//
-import { geProductColumns, order, products, statusStyle } from "./utils";
+// assets
 import { grayColor } from "../../assets/jss/material-dashboard-react";
-import { NavLink } from "react-router-dom";
+// data resource
+import { geProductColumns, order, products, statusStyle } from "./utils";
 import OrderTableSort from "./OrderTableSort";
+
+moment.locale("ru");
 
 const path = "/order";
 
@@ -157,8 +154,11 @@ class OrderForm extends Component {
                   <CardIcon color={statusStyle[orderCurrent.status.toLowerCase()]}>
                     <AddShoppingCartIcon/>
                   </CardIcon>
-                  <Typography variant='h6' component="h3"
-                              className={classname(classes.cardTitleWhite, classes.orderMargin)}>
+                  <Typography
+                    variant='h6'
+                    component="h3"
+                    className={classname(classes.cardTitleWhite, classes.orderMargin)}
+                  >
                     Номер заказа №-{orderCurrent.order}
                   </Typography>
                 </CardHeader>
@@ -202,7 +202,7 @@ class OrderForm extends Component {
                       <p className={classes.orderMargin}>
                         {orderCurrent.customer.id
                           ? <NavLink to={`/customers/1`}>
-                            {orderCurrent.customer}
+                            {orderCurrent.customer.name}
                           </NavLink>
                           : <span>{orderCurrent.customer}</span>
                         }
@@ -221,8 +221,13 @@ class OrderForm extends Component {
                       <Typography variant='h6' component="h3" className={classes.orderMargin}>
                         Пожелания
                       </Typography>
-                      <Typography variant='body2' component="p" className={classes.orderMargin} align='left'
-                                  style={{ border: "1px dotted #aaa", padding: "10px" }}>
+                      <Typography
+                        variant='body2'
+                        component="p"
+                        className={classes.orderMargin}
+                        align='left'
+                        style={{ border: "1px dotted #aaa", padding: "10px" }}
+                      >
                         Позвоните за час
                       </Typography>
                     </GridItem>
@@ -252,8 +257,14 @@ class OrderForm extends Component {
                                   md={7}
                                   item
                                 >
-                                  <Typography variant={"subtitle1"} component={"p"} align={"right"}
-                                              paragraph>Итого:</Typography>
+                                  <Typography
+                                    variant={"subtitle1"}
+                                    component={"p"}
+                                    align={"right"}
+                                    paragraph
+                                  >
+                                    Итого:
+                                  </Typography>
                                 </Grid>
                                 <Grid
                                   md={5}
@@ -278,8 +289,14 @@ class OrderForm extends Component {
                                   md={7}
                                   item
                                 >
-                                  <Typography variant={"subtitle1"} component={"p"} align={"right"}
-                                              paragraph>Доставка:</Typography>
+                                  <Typography
+                                    variant={"subtitle1"}
+                                    component={"p"}
+                                    align={"right"}
+                                    paragraph
+                                  >
+                                    Доставка:
+                                  </Typography>
                                 </Grid>
                                 <Grid
                                   md={5}
@@ -304,8 +321,14 @@ class OrderForm extends Component {
                                   md={7}
                                   item
                                 >
-                                  <Typography variant={"subtitle1"} component={"p"} align={"right"}
-                                              paragraph>{`Промокод (ddh-EdndGHh-dds):`}</Typography>
+                                  <Typography
+                                    variant={"subtitle1"}
+                                    component={"p"}
+                                    align={"right"}
+                                    paragraph
+                                  >
+                                    {`Промокод (ddh-EdndGHh-dds):`}
+                                  </Typography>
                                 </Grid>
                                 <Grid
                                   md={5}
@@ -330,8 +353,14 @@ class OrderForm extends Component {
                                   md={7}
                                   item
                                 >
-                                  <Typography variant={"subtitle1"} component={"p"} align={"right"}
-                                              paragraph>К оплате:</Typography>
+                                  <Typography
+                                    variant={"subtitle1"}
+                                    component={"p"}
+                                    align={"right"}
+                                    paragraph
+                                  >
+                                    К оплате:
+                                  </Typography>
                                 </Grid>
                                 <Grid
                                   md={5}

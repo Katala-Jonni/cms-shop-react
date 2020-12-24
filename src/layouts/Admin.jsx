@@ -11,23 +11,42 @@ import withStyles from "@material-ui/core/styles/withStyles";
 import Navbar from "components/Navbars/Navbar.jsx";
 import Footer from "components/Footer/Footer.jsx";
 import Sidebar from "components/Sidebar/Sidebar.jsx";
-// import FixedPlugin from "components/FixedPlugin/FixedPlugin.jsx";
-
-import routes from "routes.js";
-
+// assets
 import dashboardStyle from "assets/jss/material-dashboard-react/layouts/dashboardStyle.jsx";
-
 import image from "assets/img/sidebar-2.jpg";
 import logo from "assets/img/logo.png";
+// views
 import OrderForm from "../views/Order/OrderForm";
 import CurrentProduct from "../views/Product/CurrentProduct";
+import CurrentCategory from "../views/Product/CurrentCategory";
+import Revenue from "../views/Revenue/Revenue";
+//
+import routes from "routes.js";
+import Loader from "../components/Loader/Loader";
 
 const SwitchRoutes = (props) => {
   return (
     <Switch>
-      <Route path={`/order/:id`} exac render={(prop) => <OrderForm {...prop} handleClickNotification={props.handleClickNotification}/>}/>
-      <Route path={`/customers/:id`} exac render={(props) => <h1>Customer</h1>}/>
-      <Route path={`/product/:id`} exac render={(prop) => <CurrentProduct {...prop} handleClickNotification={props.handleClickNotification}/>}/>
+      <Route
+        path={`/order/:id`}
+        exac
+        render={(prop) => <OrderForm {...prop} handleClickNotification={props.handleClickNotification}/>}
+      />
+      <Route
+        path={`/category/:id`}
+        exac
+        render={(prop) => <CurrentCategory {...prop} handleClickNotification={props.handleClickNotification}/>}
+      />
+      <Route
+        path={`/customers/:id`}
+        exac
+        render={(props) => <h1>Customer</h1>}
+      />
+      <Route
+        path={`/product/:id`}
+        exac
+        render={(prop) => <CurrentProduct {...prop} handleClickNotification={props.handleClickNotification}/>}
+      />
       {routes.map((prop, key) => {
         return (
           <Route
@@ -37,9 +56,14 @@ const SwitchRoutes = (props) => {
           />
         );
       })}
-      <Route path="/revenue" render={() => <h1>Revenue</h1>}/>
-      <Route path="/new-order" render={() => <h1>New Order</h1>}/>
-      <Route path="/mailing" render={() => <h1>Подписчики</h1>}/>
+      <Route
+        path="/revenue"
+        render={(prop) => <Revenue {...prop} handleClickNotification={props.handleClickNotification}/>}
+      />
+      <Route
+        path="/mailing"
+        render={() => <h1>Подписчики</h1>}
+      />
       <Redirect to='/dashboard'/>
     </Switch>
   );
@@ -55,28 +79,12 @@ class Dashboard extends React.Component {
       fixedClasses: "dropdown",
       mobileOpen: false
     };
+    this.mainPanel = React.createRef();
   }
 
-  handleImageClick = image => {
-    this.setState({ image: image });
-  };
-  handleColorClick = color => {
-    this.setState({ color: color });
-  };
-  handleFixedClick = () => {
-    if (this.state.fixedClasses === "dropdown") {
-      this.setState({ fixedClasses: "dropdown show" });
-    } else {
-      this.setState({ fixedClasses: "dropdown" });
-    }
-  };
   handleDrawerToggle = () => {
     this.setState({ mobileOpen: !this.state.mobileOpen });
   };
-
-  getRoute() {
-    return this.props.location.pathname !== "/maps";
-  }
 
   resizeFunction = () => {
     if (window.innerWidth >= 960) {
@@ -85,15 +93,16 @@ class Dashboard extends React.Component {
   };
 
   componentDidMount() {
+    this.props.loadApp();
     if (navigator.platform.indexOf("Win") > -1) {
-      const ps = new PerfectScrollbar(this.refs.mainPanel);
+      const ps = new PerfectScrollbar(this.mainPanel.current);
     }
     window.addEventListener("resize", this.resizeFunction);
   }
 
   componentDidUpdate(e) {
     if (e.history.location.pathname !== e.location.pathname) {
-      this.refs.mainPanel.scrollTop = 0;
+      this.mainPanel.current.scrollTop = 0;
       if (this.state.mobileOpen) {
         this.setState({ mobileOpen: false });
       }
@@ -105,7 +114,15 @@ class Dashboard extends React.Component {
   }
 
   render() {
-    const { classes, ...rest } = this.props;
+    const { classes, isLoad, serverError, ...rest } = this.props;
+    if (serverError) {
+      throw new Error("serverError");
+    }
+    if (!isLoad) {
+      return (
+        <Loader isStart/>
+      );
+    }
     return (
       <div className={classes.wrapper}>
         <Sidebar
@@ -117,29 +134,16 @@ class Dashboard extends React.Component {
           color={this.state.color}
           {...rest}
         />
-        <div className={classes.mainPanel} ref="mainPanel">
+        <div className={classes.mainPanel} ref={this.mainPanel}>
           <Navbar
             routes={routes}
             handleDrawerToggle={this.handleDrawerToggle}
             {...rest}
           />
-          {/* On the /maps route we want the map to be on full screen - this is not possible if the content and conatiner classes are present because they have some paddings which would make the map smaller */}
-          {this.getRoute() ? (
-            <div className={classes.content}>
-              <div className={classes.container}><SwitchRoutes {...this.props}/></div>
-            </div>
-          ) : (
-            <div className={classes.map}><SwitchRoutes {...this.props}/></div>
-          )}
-          {this.getRoute() ? <Footer/> : null}
-          {/*<FixedPlugin*/}
-          {/*  handleImageClick={this.handleImageClick}*/}
-          {/*  handleColorClick={this.handleColorClick}*/}
-          {/*  bgColor={this.state["color"]}*/}
-          {/*  bgImage={this.state["image"]}*/}
-          {/*  handleFixedClick={this.handleFixedClick}*/}
-          {/*  fixedClasses={this.state.fixedClasses}*/}
-          {/*/>*/}
+          <div className={classes.content}>
+            <div className={classes.container}><SwitchRoutes {...this.props}/></div>
+          </div>
+          <Footer/>
         </div>
       </div>
     );
@@ -147,7 +151,10 @@ class Dashboard extends React.Component {
 }
 
 Dashboard.propTypes = {
-  classes: PropTypes.object.isRequired
+  classes: PropTypes.object.isRequired,
+  isLoad: PropTypes.bool,
+  loadApp: PropTypes.func.isRequired,
+  serverError: PropTypes.bool
 };
 
 export default withStyles(dashboardStyle)(Dashboard);

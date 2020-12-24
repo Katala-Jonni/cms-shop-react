@@ -12,8 +12,8 @@ import IconButton from "@material-ui/core/IconButton";
 import Hidden from "@material-ui/core/Hidden";
 
 // @material-ui/icons
-import Person from "@material-ui/icons/Person";
-import Notifications from "@material-ui/icons/Notifications";
+// import Person from "@material-ui/icons/Person";
+// import Notifications from "@material-ui/icons/Notifications";
 import Dashboard from "@material-ui/icons/Dashboard";
 import Search from "@material-ui/icons/Search";
 
@@ -178,21 +178,21 @@ class HeaderLinks extends React.Component {
             </ClickAwayListener>
           </Popper>
         </Manager>
-        <IconButton
-          color="inherit"
-          aria-label="Person"
-          className={rtlActive ? classes.buttonLinkRTL:classes.buttonLink}
-          classes={{
-            label: rtlActive ? classes.labelRTL:""
-          }}
-        >
-          <Person className={rtlActive ? classes.links + " " + classes.linksRTL:classes.links} />
-          <Hidden mdUp>
-            <p className={classes.linkText}>
-              {rtlActive ? "الملف الشخصي" : "Profile"}
-            </p>
-          </Hidden>
-        </IconButton>
+        {/*<IconButton*/}
+        {/*  color="inherit"*/}
+        {/*  aria-label="Person"*/}
+        {/*  className={rtlActive ? classes.buttonLinkRTL:classes.buttonLink}*/}
+        {/*  classes={{*/}
+        {/*    label: rtlActive ? classes.labelRTL:""*/}
+        {/*  }}*/}
+        {/*>*/}
+        {/*  <Person className={rtlActive ? classes.links + " " + classes.linksRTL:classes.links} />*/}
+        {/*  <Hidden mdUp>*/}
+        {/*    <p className={classes.linkText}>*/}
+        {/*      {rtlActive ? "الملف الشخصي" : "Profile"}*/}
+        {/*    </p>*/}
+        {/*  </Hidden>*/}
+        {/*</IconButton>*/}
       </div>
     );
   }
