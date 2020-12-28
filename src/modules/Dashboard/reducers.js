@@ -1,20 +1,25 @@
 import {
+  endChart,
   endDashboard
 } from "./actions";
 
 const getInitialState = () => {
   return {
     isLoadDashboard: false,
-    dashBoard: {
-      countsOrder: 10,
-      revenue: 100000,
-      newCustomers: 58,
-      newReviews: 85,
-      countChangeMailing: 49,
-      revenues: [],
+    dashboard: {
+      countsOrder: 0,
+      revenue: 0,
+      newCustomers: 0,
+      newReviews: 0,
+      countChangeMailing: 0,
       mailing: [],
-      orders: []
-    }
+      orders: [],
+      newOrders: []
+    },
+    chartRevenue: {},
+    chartOrder: {},
+    revenueCompare: {},
+    orderCompare: {}
   };
 };
 
@@ -29,6 +34,12 @@ export default (state = INIT_STATE, action) => {
   // console.log("Dashboard reducer", payload);
   switch (type) {
     case endDashboard.toString(): {
+      return {
+        ...state,
+        ...payload
+      };
+    }
+    case endChart.toString(): {
       return {
         ...state,
         ...payload
