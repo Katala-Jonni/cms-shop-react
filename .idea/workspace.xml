@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< Updated upstream
     <list default="true" id="35897b02-db74-4d63-aeba-07e6d4bd4a57" name="Default" comment="">
       <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/assets/jss/material-dashboard-react/components/navPillsStyle.jsx" afterDir="false" />
@@ -61,6 +62,9 @@
       <change beforePath="$PROJECT_DIR$/src/views/Product/DetailProduct.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Product/DetailProduct.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/UserProfile/UserProfile.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/UserProfile/UserProfile.jsx" afterDir="false" />
     </list>
+=======
+    <list default="true" id="35897b02-db74-4d63-aeba-07e6d4bd4a57" name="Default" comment="" />
+>>>>>>> Stashed changes
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -198,7 +202,11 @@
       <workItem from="1607729685358" duration="39385000" />
       <workItem from="1607873807293" duration="26067000" />
       <workItem from="1608191419178" duration="145000" />
+<<<<<<< Updated upstream
       <workItem from="1608218535008" duration="103531000" />
+=======
+      <workItem from="1608218535008" duration="182003000" />
+>>>>>>> Stashed changes
     </task>
     <servers />
   </component>
