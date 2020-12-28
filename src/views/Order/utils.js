@@ -1,5 +1,7 @@
 import moment from "moment/min/moment-with-locales";
 
+moment.locale("ru");
+
 import {
   successColor,
   warningColor,
@@ -10,6 +12,16 @@ import CheckIcon from "@material-ui/icons/Check";
 import CloseIcon from "@material-ui/icons/Close";
 import React from "react";
 import IconButton from "@material-ui/core/IconButton";
+
+export const formatDate = "lll";
+export const formatDateWeekAndMonth = "DD.MM.YYYY";
+export const formatDay = "DD.MM";
+
+export const sortDate = (a, b) => {
+  const start = moment(a.date, formatDate).format();
+  const end = moment(b.date, formatDate).format();
+  return moment(start).isSameOrBefore(end) ? 1 : -1;
+};
 
 export const statusStyle = {
   ["новый"]: "warning",
@@ -44,188 +56,46 @@ export const columns = [
   { title: "Покупатель", field: "customer" }
 ];
 
-export const ordersMap = {
-  new: [
-    {
-      date: "12.12.2020/10:30",
-      order: "TBXSLR",
-      status: "new",
-      customer: "Солнцев Максим Робертович",
-      id: "1"
-    },
-    {
-      date: "12.12.2020/13:00",
-      order: "XUOWL3",
-      status: "close",
-      customer: "Солнцева Дарья Робертовна",
-      id: "2"
-    },
-    {
-      date: "12.12.2020/17:50",
-      order: "NF735N",
-      status: "cancelled",
-      customer: "Солнцева Наталья Михайловна",
-      id: "3"
-    },
-    {
-      date: "12.12.2020/23:08",
-      order: "ATM889",
-      status: "new",
-      customer: "Кривуша Екатерина Александровна",
-      id: "4"
-    },
-    {
-      date: "12.12.2020/23:08",
-      order: "ATM889",
-      status: "new",
-      customer: "Кривуша Екатерина Александровна",
-      id: "5"
-    },
-    {
-      date: "12.12.2020/23:08",
-      order: "ATM889",
-      status: "cancelled",
-      customer: "Кривуша Екатерина Александровна",
-      id: "6"
-    },
-    {
-      date: "12.12.2020/23:08",
-      order: "ATM889",
-      status: "close",
-      customer: "Кривуша Екатерина Александровна",
-      id: "7"
-    },
-    {
-      date: "12.12.2020/23:08",
-      order: "ATM889",
-      status: "close",
-      customer: "Кривуша Екатерина Александровна",
-      id: "8"
-    }
-  ],
-  close: [
-    {
-      date: "12.12.2020/10:30",
-      order: "TBXSLR",
-      status: "new",
-      customer: "Солнцев Максим Робертович",
-      id: "9"
-    },
-    {
-      date: "12.12.2020/13:00",
-      order: "XUOWL3",
-      status: "new",
-      customer: "Солнцева Дарья Робертовна",
-      id: "10"
-    },
-    {
-      date: "12.12.2020/17:50",
-      order: "NF735N",
-      status: "new",
-      customer: "Солнцева Наталья Михайловна",
-      id: "11"
-    }
-  ],
-  cancelled: [
-    {
-      date: "12.12.2020/10:30",
-      order: "TBXSLR",
-      customer: "Солнцев Максим Робертович",
-      id: "12"
-    },
-    {
-      date: "12.12.2020/13:00",
-      order: "XUOWL3",
-      customer: "Солнцева Дарья Робертовна",
-      id: "13"
-    },
-    {
-      date: "12.12.2020/17:50",
-      order: "NF735N",
-      customer: "Солнцева Наталья Михайловна",
-      id: "14"
-    },
-    {
-      date: "12.12.2020/23:08",
-      order: "ATM889",
-      customer: "Кривуша Екатерина Александровна",
-      id: "15"
-    },
-    {
-      date: "12.12.2020/23:08",
-      order: "ATM889",
-      customer: "Кривуша Екатерина Александровна",
-      id: "16"
-    }
-  ]
-};
+const status = ["Новый", "Закрыт", "Отменен"];
+const customer = ["Иванов Иван Иванович", "Петров Петр Петрович", "Сидоров Сидр Сидорович"];
+
+let count = 0;
+const orderMap = new Array(18)
+  .fill("")
+  .map((_, idx) => {
+    return {
+      date: `${moment().subtract(count++, "days").format(formatDate)}`,
+      order: `TBXSL${idx}`,
+      status: status[idx % status.length],
+      customer: customer[idx % customer.length],
+      total: Math.ceil(Math.random() * 1000),
+      id: idx,
+      key: idx
+    };
+  });
 
 
-const orderMap = [
-  {
-    date: "12.12.2020/10:30",
-    order: "TBXSLR",
-    status: "Новый",
-    customer: "Солнцев Максим Робертович",
-    id: "1"
-  },
-  {
-    date: "12.12.2020/13:00",
-    order: "XUOWL3",
-    status: "Закрыт",
-    customer: "Солнцева Дарья Робертовна",
-    id: "2"
-  },
-  {
-    date: "12.12.2020/17:50",
-    order: "NF735N",
-    status: "Отменен",
-    customer: "Солнцева Наталья Михайловна",
-    id: "3"
-  },
-  {
-    date: "12.12.2020/23:08",
-    order: "ATM889",
-    status: "Новый",
-    customer: "Кривуша Екатерина Александровна",
-    id: "4"
-  },
-  {
-    date: "12.12.2020/23:08",
-    order: "ATM889",
-    status: "Новый",
-    customer: "Кривуша Екатерина Александровна",
-    id: "5"
-  },
-  {
-    date: "12.12.2020/23:08",
-    order: "ATM889",
-    status: "Отменен",
-    customer: "Кривуша Екатерина Александровна",
-    id: "6"
-  },
-  {
-    date: "12.12.2020/23:08",
-    order: "ATM889",
-    status: "Закрыт",
-    customer: "Кривуша Екатерина Александровна",
-    id: "7"
-  },
-  {
-    date: "12.12.2020/23:08",
-    order: "ATM889",
-    status: "Закрыт",
-    customer: "Кривуша Екатерина Александровна",
-    id: "8"
-  }
-];
+const orderMap2 = new Array(10)
+  .fill("")
+  .map((_, idx) => {
+    return {
+      date: `${moment().format(formatDate)}`,
+      order: `TBXSL${idx + 100}`,
+      status: status[idx % status.length],
+      customer: customer[idx % customer.length],
+      total: Math.ceil(Math.random() * 1000),
+      id: idx + 100,
+      key: idx + 100
+    };
+  });
 
-orderMap.forEach(el => {
-  el.key = el.id;
-  el.sum = Math.ceil(Math.random() * 1000);
-});
+orderMap.push(...orderMap2);
+
+
 const filterNoNewOrders = orderMap.filter(el => el.status.toLowerCase() !== "новый");
-export const filterNewOrder = orderMap.filter(el => el.status.toLowerCase() === "новый");
+export const filterNewOrder = orderMap
+  .sort(sortDate)
+  .filter(el => el.status.toLowerCase() === "новый")
 
 export const order = [...filterNewOrder, ...filterNoNewOrders];
 
@@ -320,14 +190,12 @@ goods.push(
   }
 );
 
-console.log(goods);
-
 let i = 0;
-export const revenue = new Array(15)
+export const revenue = new Array(100)
   .fill("")
   .map((_, idx) => {
     return {
-      date: `${moment().add(i++, "days").format("L")}`,
+      date: `${moment().subtract(i++, "days").format("L")}`,
       ordersCount: Math.ceil(Math.random() * 100),
       total: Math.ceil(Math.random() * 100000),
       id: idx,
@@ -362,21 +230,16 @@ export const getOrderColumns = (filteredInfo, sortedInfo) => {
       key: "date",
       filteredValue: filteredInfo.date || null,
       onFilter: (value, record) => record.date.includes(value),
-      sorter: (a, b) => {
-        const start = moment(a.date, "LLLL").format();
-        const end = moment(b.date, "LLLL").format();
-        return +new Date(start) - +new Date(end);
-
-      },
+      sorter: (sortDate),
       sortOrder: sortedInfo.columnKey === "date" && sortedInfo.order,
       ellipsis: true
     },
     {
       title: "Сумма ₽",
-      dataIndex: "sum",
-      key: "sum",
-      sorter: (a, b) => a.sum - b.sum,
-      sortOrder: sortedInfo.columnKey === "sum" && sortedInfo.order,
+      dataIndex: "total",
+      key: "total",
+      sorter: (a, b) => a.total - b.total,
+      sortOrder: sortedInfo.columnKey === "total" && sortedInfo.order,
       ellipsis: true
     },
     {
@@ -513,12 +376,7 @@ export const geRevenueColumns = (filteredInfo, sortedInfo) => {
       key: "date",
       filteredValue: filteredInfo.date || null,
       onFilter: (value, record) => record.date.includes(value),
-      sorter: (a, b) => {
-        const start = moment(a.date, "L").format();
-        const end = moment(b.date, "L").format();
-        return +new Date(start) - +new Date(end);
-
-      },
+      sorter: (sortDate),
       sortOrder: sortedInfo.columnKey === "date" && sortedInfo.order,
       ellipsis: true
     },

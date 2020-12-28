@@ -2,64 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="35897b02-db74-4d63-aeba-07e6d4bd4a57" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/jss/material-dashboard-react/components/navPillsStyle.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Header/PopoverComponent.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/List/List.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/NavPills/NavPills.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ProductCard/ProductCard.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Search/SearchInput.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dataBase.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/hoc/ErrorComponent.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/layouts/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/App/actions.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/App/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/App/reducers.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/App/sagas.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/App/selectors.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/Dashboard/actions.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/Dashboard/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/Dashboard/reducers.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/Dashboard/sagas.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/Dashboard/selectors.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/Template/actions.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/Template/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/Template/reducers.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/Template/sagas.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/Template/selectors.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/storage/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/store/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/dataBase.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/utils.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/Dashboard/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/Product/Catalog.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/Product/CurrentCategory.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/Product/ProductList.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/Revenue/Revenue.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Compare/Compare.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintcache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/jss/material-dashboard-react/components/iconButtonStyle.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/jss/material-dashboard-react/components/iconButtonStyle.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/CustomButtons/IconButton.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CustomButtons/IconButton.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Grid/GridContainer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Grid/GridContainer.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Grid/GridItem.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Grid/GridItem.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Header/HeaderLinks.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/HeaderLinks.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Loader/Loader.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Loader/Loader.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/layouts/Admin.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/layouts/Admin.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/layouts/RTL.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/css/material-dashboard-react.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/css/material-dashboard-react.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/jss/material-dashboard-react/views/dashboardStyle.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/jss/material-dashboard-react/views/dashboardStyle.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/CheckboxListSecondary/CheckboxListSecondary.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CheckboxListSecondary/CheckboxListSecondary.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/App/sagas.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/App/sagas.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/Dashboard/actions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Dashboard/actions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/Dashboard/reducers.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Dashboard/reducers.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/Dashboard/sagas.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Dashboard/sagas.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/Dashboard/selectors.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Dashboard/selectors.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/dataBase.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/utils.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/Dashboard/Dashboard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Dashboard/Dashboard.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/Order/Order.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Order/Order.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/Dashboard/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Dashboard/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/Order/OrderForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Order/OrderForm.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/Order/OrderTableSort.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Order/OrderTableSort.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/Order/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Order/utils.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/Product/CurrentProduct.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Product/CurrentProduct.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/Product/DetailProduct.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Product/DetailProduct.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/UserProfile/UserProfile.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/UserProfile/UserProfile.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,7 +58,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="javascript.nodejs.core.library.configured.version" value="13.6.0" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/modules/Dashboard" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/modules/Chart" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.jscs" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
@@ -122,11 +81,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/modules/Chart" />
       <recent name="$PROJECT_DIR$/src/modules/Dashboard" />
       <recent name="$PROJECT_DIR$/src/modules/App" />
       <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$/src/modules" />
-      <recent name="$PROJECT_DIR$/src/assets/jss/material-dashboard-react/components" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/assets/img" />
@@ -198,7 +157,7 @@
       <workItem from="1607729685358" duration="39385000" />
       <workItem from="1607873807293" duration="26067000" />
       <workItem from="1608191419178" duration="145000" />
-      <workItem from="1608218535008" duration="103531000" />
+      <workItem from="1608218535008" duration="181708000" />
     </task>
     <servers />
   </component>
@@ -206,11 +165,11 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="254" y="337" key="#ESLint" timestamp="1608489852642">
+    <state x="254" y="337" key="#ESLint" timestamp="1609006268259">
       <screen x="0" y="25" width="2560" height="1290" />
     </state>
     <state x="254" y="337" key="#ESLint/0.23.2560.1297@0.23.2560.1297" timestamp="1607559325972" />
-    <state x="254" y="337" key="#ESLint/0.25.2560.1290@0.25.2560.1290" timestamp="1608489852642" />
+    <state x="254" y="337" key="#ESLint/0.25.2560.1290@0.25.2560.1290" timestamp="1609006268259" />
     <state x="166" y="333" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1607561075624">
       <screen x="0" y="23" width="2560" height="1297" />
     </state>
@@ -250,6 +209,10 @@
     </state>
     <state x="155" y="310" key="SettingsEditor/0.23.2560.1297@0.23.2560.1297" timestamp="1607555956928" />
     <state x="155" y="310" key="SettingsEditor/0.25.2560.1290@0.25.2560.1290" timestamp="1608687507896" />
+    <state width="500" height="445" key="SwitcherDM" timestamp="1608769625940">
+      <screen x="0" y="25" width="2560" height="1290" />
+    </state>
+    <state width="500" height="445" key="SwitcherDM/0.25.2560.1290@0.25.2560.1290" timestamp="1608769625940" />
     <state x="850" y="118" width="978" height="1097" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1607729783744">
       <screen x="0" y="23" width="2560" height="1297" />
     </state>
@@ -266,10 +229,10 @@
       <screen x="0" y="23" width="2560" height="1297" />
     </state>
     <state x="309" y="316" width="670" height="675" key="run.anything.popup/0.23.2560.1297@0.23.2560.1297" timestamp="1607896498696" />
-    <state x="292" y="318" width="670" height="673" key="search.everywhere.popup" timestamp="1608682288127">
+    <state x="292" y="318" width="670" height="673" key="search.everywhere.popup" timestamp="1609022868058">
       <screen x="0" y="25" width="2560" height="1290" />
     </state>
     <state x="292" y="318" width="670" height="676" key="search.everywhere.popup/0.23.2560.1297@0.23.2560.1297" timestamp="1607780654188" />
-    <state x="292" y="318" width="670" height="673" key="search.everywhere.popup/0.25.2560.1290@0.25.2560.1290" timestamp="1608682288127" />
+    <state x="292" y="318" width="670" height="673" key="search.everywhere.popup/0.25.2560.1290@0.25.2560.1290" timestamp="1609022868058" />
   </component>
 </project>

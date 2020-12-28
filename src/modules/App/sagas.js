@@ -4,7 +4,6 @@ import { loadApp, startApp } from "./actions";
 const delay = time => new Promise(resolve => setTimeout(resolve, time));
 
 function* loadApplication() {
-  // console.log("startApplication", action);
   yield call(delay, 2000);
   const payload = {
     isLoad: true
