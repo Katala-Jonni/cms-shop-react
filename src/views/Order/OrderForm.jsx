@@ -87,7 +87,7 @@ class OrderForm extends Component {
 
   componentDidMount(): void {
     this.timer = setTimeout(() => {
-      const target = order.find(o => o.id === this.props.match.params.id);
+      const target = order.find(o => o.id === +this.props.match.params.id);
       this.setState({
         orderCurrent: target,
         status: target.status.toLowerCase()
@@ -137,7 +137,7 @@ class OrderForm extends Component {
     const { orderCurrent, status } = this.state;
     return (
       <>
-        {orderCurrent && orderCurrent.id
+        {orderCurrent
           ? <GridContainer>
             <GridItem xs={12}>
               <NavLink to={path}>
