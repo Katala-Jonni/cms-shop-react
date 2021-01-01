@@ -7,7 +7,8 @@ import {
   sortDate,
   orderMap,
   formatDateWeekAndMonth,
-  formatDay, getOrders
+  formatDay,
+  getOrders
 } from "../../views/Order/utils";
 import moment from "moment/min/moment-with-locales";
 import { getCharts } from "../../utils/utils";
@@ -215,7 +216,7 @@ function* startChartChangeRevue(action) {
 function* startChartChangeOrder(action) {
   const info = getTypeChart({
     type: action.payload,
-    data: getOrders(),
+    data: getOrders(orderMap),
     format: formatDate,
     formatDay: formatDate,
     count: count,
