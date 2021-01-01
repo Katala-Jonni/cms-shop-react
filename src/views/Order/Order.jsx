@@ -12,18 +12,34 @@ import Card from "components/Card/Card.jsx";
 import CardHeader from "components/Card/CardHeader.jsx";
 import CardBody from "components/Card/CardBody.jsx";
 import CardIcon from "components/Card/CardIcon.jsx";
+import Loader from "components/Loader/Loader";
 // data resource
-import { getOrderColumns, order } from "./utils";
+import { getOrderColumns } from "./utils";
 //
 import OrderTableSort from "./OrderTableSort";
 
 class Order extends React.Component {
+
+  componentWillUnmount(): void {
+    this.props.clearOrder();
+  }
+
+  componentDidMount(): void {
+    this.props.startLoadOrder();
+  }
+
   onChangeSearch = evt => {
-    console.log("CurrentCategory-onChangeSearch", evt.target.value);
+    this.props.startSearchOrder({ value: evt.target.value });
   };
 
   render() {
-    const { classes } = this.props;
+    const { classes, isLoadOrder, orders } = this.props;
+
+    if (!isLoadOrder) {
+      return (
+        <Loader/>
+      );
+    }
 
     return (
       <GridContainer>
@@ -39,14 +55,14 @@ class Order extends React.Component {
               <CardBody>
                 <OrderTableSort
                   {...this.props}
-                  orders={order}
+                  orders={orders}
                   scroll={{
                     x: "100vh"
                   }}
                   tableLayout={undefined}
                   getColumns={getOrderColumns}
                   path={"/order"}
-                  pagination={order.length > 10}
+                  pagination={orders.length > 10}
                   viewSearch
                   onChangeSearch={this.onChangeSearch}
                 />
@@ -64,7 +80,12 @@ Order.propTypes = {
   classes: PropTypes.object.isRequired,
   history: PropTypes.object,
   match: PropTypes.object,
-  location: PropTypes.object
+  location: PropTypes.object,
+  orders: PropTypes.array,
+  startLoadOrder: PropTypes.func,
+  isLoadOrder: PropTypes.bool,
+  clearOrder: PropTypes.func,
+  startSearchOrder: PropTypes.func
 };
 
 export default withStyles(dashboardStyle)(Order);

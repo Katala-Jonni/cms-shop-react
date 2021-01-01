@@ -16,7 +16,7 @@ import dashboardStyle from "assets/jss/material-dashboard-react/layouts/dashboar
 import image from "assets/img/sidebar-2.jpg";
 import logo from "assets/img/logo.png";
 // views
-import OrderForm from "../views/Order/OrderForm";
+import CurrentOrder from "../views/Order/CurrentOrder/index";
 import CurrentProduct from "../views/Product/CurrentProduct";
 import CurrentCategory from "../views/Product/CurrentCategory";
 import Revenue from "../views/Revenue/Revenue";
@@ -30,7 +30,7 @@ const SwitchRoutes = (props) => {
       <Route
         path={`/order/:id`}
         exac
-        render={(prop) => <OrderForm {...prop} handleClickNotification={props.handleClickNotification}/>}
+        render={(prop) => <CurrentOrder {...prop} handleClickNotification={props.handleClickNotification}/>}
       />
       <Route
         path={`/category/:id`}

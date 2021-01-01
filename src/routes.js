@@ -12,7 +12,7 @@ import DashboardPage from "views/Dashboard";
 import UserProfile from "views/UserProfile/UserProfile.jsx";
 // import TableList from "views/TableList/TableList.jsx";
 // import Typography from "views/Typography/Typography.jsx";
-import Order from "./views/Order/Order";
+import Order from "./views/Order";
 // import CurrentProduct from "./views/Product/CurrentProduct";
 import Catalog from "./views/Product/Catalog";
 // core components/views for RTL layout
