@@ -5,15 +5,15 @@ import { NavLink } from "react-router-dom";
 import moment from "moment/min/moment-with-locales";
 import classname from "classnames";
 // core components
-import GridContainer from "../../components/Grid/GridContainer";
-import GridItem from "../../components/Grid/GridItem";
-import Card from "../../components/Card/Card";
-import CardHeader from "../../components/Card/CardHeader";
-import CardIcon from "../../components/Card/CardIcon";
-import CardBody from "../../components/Card/CardBody";
-import CardFooter from "../../components/Card/CardFooter";
-import Button from "../../components/CustomButtons/Button";
-import Loader from "../../components/Loader/Loader";
+import GridContainer from "../../../components/Grid/GridContainer";
+import GridItem from "../../../components/Grid/GridItem";
+import Card from "../../../components/Card/Card";
+import CardHeader from "../../../components/Card/CardHeader";
+import CardIcon from "../../../components/Card/CardIcon";
+import CardBody from "../../../components/Card/CardBody";
+import CardFooter from "../../../components/Card/CardFooter";
+import Button from "../../../components/CustomButtons/Button";
+import Loader from "../../../components/Loader/Loader";
 // @material-ui/core components
 import { withStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
@@ -25,10 +25,10 @@ import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
 import CloseIcon from "@material-ui/icons/Close";
 import SaveIcon from "@material-ui/icons/Save";
 // assets
-import { grayColor } from "../../assets/jss/material-dashboard-react";
+import { grayColor } from "../../../assets/jss/material-dashboard-react";
 // data resource
-import { geProductColumns, order, products, statusStyle } from "./utils";
-import OrderTableSort from "./OrderTableSort";
+import { formatDate, geProductColumns, products, statusStyle } from "../utils";
+import OrderTableSort from "../OrderTableSort";
 
 moment.locale("ru");
 
@@ -71,29 +71,23 @@ const useStyles = ((theme) => ({
   }
 }));
 
-class OrderForm extends Component {
-  displayName = "OrderForm";
+class CurrentOrder extends Component {
+  displayName = "CurrentOrder";
 
   state = {
-    orderCurrent: null,
+    currentOrder: null,
     status: null,
     clicked: true,
     statusMap: []
   };
 
   componentWillUnmount(): void {
-    clearInterval(this.timer);
+    // delete state
+    this.props.clearCurrentOrder();
   }
 
   componentDidMount(): void {
-    this.timer = setTimeout(() => {
-      const target = order.find(o => o.id === +this.props.match.params.id);
-      this.setState({
-        orderCurrent: target,
-        status: target.status.toLowerCase()
-      });
-      clearTimeout(this.timer);
-    }, 1000);
+    this.props.startLoadCurrentOrder({ id: +this.props.match.params.id });
   }
 
   getMenuStatus = () => {
@@ -101,10 +95,10 @@ class OrderForm extends Component {
   };
 
   handleChange = (event) => {
-    const prevStatus = this.state.orderCurrent.status.toLowerCase();
+    const prevStatus = this.props.currentOrder.status.toLowerCase();
     const newStatus = event.target.value;
     this.setState({
-      status: event.target.value,
+      status: newStatus,
       clicked: prevStatus === newStatus
     });
   };
@@ -119,25 +113,18 @@ class OrderForm extends Component {
     };
     this.props.handleClickNotification(options)();
     if (options.variant === "error") return false;
-    const orderCurrent = { ...this.state.orderCurrent };
-    const [first, ...other] = this.state.status.slice();
-    orderCurrent.status = `${first.toUpperCase()}${other.join("")}`;
-    this.setState({
-      orderCurrent: orderCurrent
-    });
-    order.forEach(o => {
-      if (o.id === orderCurrent.id) {
-        o.status = orderCurrent.status;
-      }
+    this.props.startSaveCurrentOrder({
+      status: this.state.status,
+      currentOrder: this.props.currentOrder
     });
   };
 
   render() {
-    const { classes } = this.props;
-    const { orderCurrent, status } = this.state;
+    const { classes, currentOrder, statusCurrentOrder } = this.props;
+    const { status } = this.state;
     return (
       <>
-        {orderCurrent
+        {currentOrder
           ? <GridContainer>
             <GridItem xs={12}>
               <NavLink to={path}>
@@ -151,7 +138,7 @@ class OrderForm extends Component {
             <GridItem xs={12} sm={12}>
               <Card>
                 <CardHeader color="info" stats>
-                  <CardIcon color={statusStyle[orderCurrent.status.toLowerCase()]}>
+                  <CardIcon color={statusStyle[currentOrder.status.toLowerCase()]}>
                     <AddShoppingCartIcon/>
                   </CardIcon>
                   <Typography
@@ -159,7 +146,7 @@ class OrderForm extends Component {
                     component="h3"
                     className={classname(classes.cardTitleWhite, classes.orderMargin)}
                   >
-                    Номер заказа №-{orderCurrent.order}
+                    Номер заказа №-{currentOrder.order}
                   </Typography>
                 </CardHeader>
                 <CardBody>
@@ -170,20 +157,20 @@ class OrderForm extends Component {
                       </Typography>
                       <div className={classes.orderMargin}>
                         <small className={classes.headerTitle}>Дата/Время</small>
-                        <p className={classes.text}>{moment(orderCurrent.date).format("LLLL")}</p>
+                        <p className={classes.text}>{moment(currentOrder.date, formatDate).format("LLLL")}</p>
                       </div>
                       <div>
                         <TextField
                           select
                           label="Статус"
-                          value={status}
+                          value={status || statusCurrentOrder}
                           onChange={this.handleChange}
                           helperText="Выберите статус"
                           variant="outlined"
                         >
-                          {this.state.status
-                            ? <MenuItem key={this.state.status} value={this.state.status}>
-                              {this.state.status}
+                          {status
+                            ? <MenuItem key={status} value={status}>
+                              {status}
                             </MenuItem>
                             : null
                           }
@@ -200,11 +187,11 @@ class OrderForm extends Component {
                         Покупатель
                       </Typography>
                       <p className={classes.orderMargin}>
-                        {orderCurrent.customer.id
+                        {currentOrder.customer.id
                           ? <NavLink to={`/customers/1`}>
-                            {orderCurrent.customer.name}
+                            {currentOrder.customer.name}
                           </NavLink>
-                          : <span>{orderCurrent.customer}</span>
+                          : <span>{currentOrder.customer}</span>
                         }
                       </p>
                       <p>
@@ -422,11 +409,16 @@ class OrderForm extends Component {
   }
 }
 
-OrderForm.propTypes = {
+CurrentOrder.propTypes = {
   classes: PropTypes.object,
   match: PropTypes.object,
   history: PropTypes.object,
-  handleClickNotification: PropTypes.func
+  handleClickNotification: PropTypes.func,
+  startLoadCurrentOrder: PropTypes.func,
+  currentOrder: PropTypes.object,
+  statusCurrentOrder: PropTypes.string,
+  startSaveCurrentOrder: PropTypes.func,
+  clearCurrentOrder: PropTypes.func
 };
 
-export default withStyles(useStyles)(OrderForm);
+export default withStyles(useStyles)(CurrentOrder);

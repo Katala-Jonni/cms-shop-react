@@ -8,6 +8,7 @@ import createSagaMiddleware from "redux-saga";
 import rootSaga from "../modules";
 import app from "../modules/App";
 import dashboard from "../modules/Dashboard";
+import order from "../modules/Order";
 import { reducer as formReducer } from "redux-form";
 
 const sagaMiddleware = createSagaMiddleware();
@@ -15,6 +16,7 @@ const sagaMiddleware = createSagaMiddleware();
 const mainReducer = combineReducers({
   app,
   dashboard,
+  order,
   form: formReducer
 });
 

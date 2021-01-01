@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import "antd/dist/antd.css";
 import { Space, Table } from "antd";
 // core components
-import SearchInput from "../../components/Search/SearchInput";
+import SearchInput from "components/Search/SearchInput";
 
 class OrderTableSort extends React.Component {
   state = {

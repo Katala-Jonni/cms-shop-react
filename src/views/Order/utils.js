@@ -60,7 +60,7 @@ const status = ["Новый", "Закрыт", "Отменен"];
 const customer = ["Иванов Иван Иванович", "Петров Петр Петрович", "Сидоров Сидр Сидорович"];
 
 let count = 0;
-const orderMap = new Array(18)
+export const orderMap = new Array(100)
   .fill("")
   .map((_, idx) => {
     return {
@@ -91,11 +91,19 @@ const orderMap2 = new Array(10)
 
 orderMap.push(...orderMap2);
 
-
 const filterNoNewOrders = orderMap.filter(el => el.status.toLowerCase() !== "новый");
 export const filterNewOrder = orderMap
   .sort(sortDate)
-  .filter(el => el.status.toLowerCase() === "новый")
+  .filter(el => el.status.toLowerCase() === "новый");
+
+export const getOrders = (orderMap) => {
+  const filterNoNewOrders = orderMap.filter(el => el.status.toLowerCase() !== "новый");
+  const filterNewOrder = orderMap
+    .sort(sortDate)
+    .filter(el => el.status.toLowerCase() === "новый");
+  return [...filterNewOrder, ...filterNoNewOrders];
+};
+
 
 export const order = [...filterNewOrder, ...filterNoNewOrders];
 
@@ -397,4 +405,13 @@ export const geRevenueColumns = (filteredInfo, sortedInfo) => {
       ellipsis: true
     }
   ];
+};
+
+export const getSearchOrder = v => {
+  const columns = ["order", "status", "date", "total", "customer"];
+  return orderMap.filter(data => {
+    let value = "";
+    columns.forEach(column => value += data[column]);
+    return value.trim().toLowerCase().includes(v.trim().toLowerCase());
+  });
 };

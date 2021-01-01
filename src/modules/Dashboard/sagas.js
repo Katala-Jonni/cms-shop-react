@@ -2,12 +2,12 @@ import { fork, takeLatest, put, call } from "redux-saga/effects";
 import { endChart, endDashboard, startChart, startChartOrder, startDashboard } from "./actions";
 import {
   revenue,
-  order,
-  filterNewOrder,
+  // order,
   formatDate,
   sortDate,
+  orderMap,
   formatDateWeekAndMonth,
-  formatDay
+  formatDay, getOrders
 } from "../../views/Order/utils";
 import moment from "moment/min/moment-with-locales";
 import { getCharts } from "../../utils/utils";
@@ -154,10 +154,13 @@ function* startDashboardLoad() {
   yield call(delay, 100);
   // initial [order, revenue, goods, category]
 
-  const countsOrder = getCountsOrder(order);
+  const countsOrder = getCountsOrder(orderMap);
   const currentDate = revenue.find(t => getCountsOrder([t]));
   const { chart: chartRevenue, compare: revenueCompare } = getDayChart(revenue, formatDay, count);
-  const { chart: chartOrder, compare: orderCompare } = getDayChart(order, formatDate, count, typeViewOrder);
+  const { chart: chartOrder, compare: orderCompare } = getDayChart(orderMap, formatDate, count, typeViewOrder);
+  const filterNewOrder = orderMap
+    .sort(sortDate)
+    .filter(el => el.status.toLowerCase() === "новый");
 
   const payload = {
     isLoadDashboard: true,
@@ -212,7 +215,7 @@ function* startChartChangeRevue(action) {
 function* startChartChangeOrder(action) {
   const info = getTypeChart({
     type: action.payload,
-    data: order,
+    data: getOrders(),
     format: formatDate,
     formatDay: formatDate,
     count: count,
